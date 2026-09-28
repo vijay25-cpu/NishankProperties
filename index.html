@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishank Properties | Luxury Real Estate Pune & PCMC</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts: Outfit & Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Syne', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#c59d5f',
+              goldLight: '#ecd6ad',
+              goldDark: '#997332',
+              navy: '#0b132b',
+              navyLight: '#152042',
+              cardBg: '#111a36',
+              charcoal: '#060a17',
+              borderGold: 'rgba(197, 157, 95, 0.3)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .gold-gradient {
+      background: linear-gradient(135deg, #c59d5f 0%, #edd8b2 50%, #997332 100%);
+    }
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #c59d5f 0%, #ecd6ad 50%, #a87f3b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0b132b;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c59d5f;
+      border-radius: 9999px;
+    }
+    .badge-blur {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="bg-brand-charcoal text-slate-100 font-sans antialiased selection:bg-brand-gold selection:text-brand-navy custom-scrollbar">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed top-5 right-5 z-[100] flex flex-col space-y-3 pointer-events-none"></div>
+
+  <div class="bg-[#040711] border-b border-brand-borderGold/40 text-xs py-2 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+      <div class="flex items-center space-x-2 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="hidden sm:inline">MahaRERA Registered • Inspired by Gera 5-Year Structural Assurance</span>
+        <span class="sm:hidden font-medium text-slate-300">Nishank Properties Pune</span>
+      </div>
+      <div class="flex items-center flex-wrap gap-4 text-slate-300">
+        <a href="tel:+919545548006" class="hover:text-brand-gold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-brand-gold text-[10px]"></i> <span class="font-medium text-white">Yashraj:</span> 9545548006
+        </a>
+        <span class="text-white/20 hidden md:inline">|</span>
+        <a href="tel:+919325954944" class="hover:text-brand-gold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-brand-gold text-[10px]"></i> <span class="font-medium text-white">Rahul:</span> 9325954944
+        </a>
+        <span class="text-white/20 hidden md:inline">|</span>
+        <a href="tel:+919561382498" class="hover:text-brand-gold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-brand-gold text-[10px]"></i> <span class="font-medium text-white">Aryan:</span> 9561382498
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-40 bg-[#0b132b]/95 backdrop-blur-md border-b border-brand-borderGold/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Branding -->
+      <a href="javascript:void(0)" onclick="switchToClientView()" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl gold-gradient flex items-center justify-center text-brand-navy font-extrabold text-2xl shadow-lg shadow-brand-gold/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-building-shield text-xl"></i>
+        </div>
+        <div>
+          <span class="font-heading text-2xl font-extrabold tracking-wider text-white">NISHANK</span>
+          <span class="block text-[10px] tracking-[0.25em] text-brand-gold font-semibold uppercase">PROPERTIES PUNE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links (Visible in Client View) -->
+      <nav id="client-nav-links" class="hidden md:flex items-center space-x-7 text-sm font-medium">
+        <a href="#properties" class="text-slate-300 hover:text-brand-gold transition">Pune Localities</a>
+        <a href="#gera-assurance" class="text-slate-300 hover:text-brand-gold transition">5-Year Assurance</a>
+        <a href="#virtual-walkthroughs" class="text-slate-300 hover:text-brand-gold transition">Virtual Tours</a>
+        <a href="#advisors" class="text-slate-300 hover:text-brand-gold transition">Key Advisors</a>
+        <a href="#book-visit" class="text-slate-300 hover:text-brand-gold transition">Site Visit</a>
+      </nav>
+
+      <!-- Action Buttons: Client Booking & Admin Portal Toggle -->
+      <div class="flex items-center space-x-3">
+        
+        <button id="book-visit-quick-btn" onclick="scrollToBooking()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full gold-gradient text-brand-navy font-bold text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-md shadow-brand-gold/20">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Book Visit</span>
+        </button>
+
+        <!-- Admin View Switcher Button -->
+        <button id="admin-toggle-btn" onclick="promptAdminAccess()" class="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navyLight border border-brand-borderGold text-brand-gold hover:bg-brand-gold hover:text-brand-navy text-xs font-bold uppercase tracking-wider transition-all">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span id="admin-btn-text">Admin CRM</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================== -->
+  <!-- MAIN CLIENT-FACING SECTION CONTAINER                           -->
+  <!-- ============================================================== -->
+  <main id="client-view" class="transition-opacity duration-300">
+    
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-12 pb-20">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
+             alt="Luxury Apartments Pune" 
+             class="w-full h-full object-cover filter brightness-[0.32] contrast-105 scale-105"
+             onerror="this.src='https://placehold.co/1920x1080/0b132b/c59d5f?text=Nishank+Properties+Pune'">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0b132b]/80 via-[#060a17]/70 to-[#060a17]"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-navyLight/80 border border-brand-borderGold text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6 badge-blur">
+          <i class="fa-solid fa-award"></i>
+          <span>Inspired by Gera Benchmark Construction &amp; Zero Brokerage</span>
+        </div>
+
+        <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
+          Pune’s Most Exclusive <span class="text-gold-gradient font-serif italic">Addresses</span>
+        </h1>
+        
+        <p class="mt-5 text-sm sm:text-lg text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+          Explore vetted homes, sky residences, and commercial landmark properties across Katraj, Kondhwa, Swargate, Hadapsar, Chinchwad, Pimpri, and Bhosari with authentic video tours.
+        </p>
+
+        <!-- Area Jump Pills -->
+        <div class="mt-8 flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+          <button onclick="filterProperties('katraj')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Katraj</button>
+          <button onclick="filterProperties('kondhwa')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Kondhwa</button>
+          <button onclick="filterProperties('swargate')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Swargate</button>
+          <button onclick="filterProperties('hadapsar')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Hadapsar</button>
+          <button onclick="filterProperties('chinchwad')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Chinchwad</button>
+          <button onclick="filterProperties('pimpri')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Pimpri</button>
+          <button onclick="filterProperties('bhosari')" class="px-4 py-2 text-xs bg-brand-navyLight/90 hover:bg-brand-gold hover:text-brand-navy rounded-full border border-brand-borderGold/50 transition font-medium">Bhosari</button>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 text-slate-300 text-xs sm:text-sm">
+          <div class="flex items-center justify-center gap-2"><i class="fa-solid fa-circle-check text-brand-gold"></i> 100% MahaRERA Titles</div>
+          <div class="flex items-center justify-center gap-2"><i class="fa-solid fa-shield-halved text-brand-gold"></i> 5-Year Structural Warranty</div>
+          <div class="flex items-center justify-center gap-2"><i class="fa-solid fa-video text-brand-gold"></i> Live 4K Walkthroughs</div>
+          <div class="flex items-center justify-center gap-2"><i class="fa-solid fa-tag text-brand-gold"></i> Zero Brokerage Direct</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="properties" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Pune &amp; PCMC Neighborhood Portfolios</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Area-Wise Verified Properties</h2>
+        <p class="text-slate-400 text-sm mt-2 max-w-2xl mx-auto">Select any locality to view all available gated communities, carpet areas, multi-photo galleries, and walkthrough videos.</p>
+      </div>
+
+      <!-- Filter Locality Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-4 mb-8 justify-start lg:justify-center">
+        <button onclick="filterProperties('all')" class="locality-pill active-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-gold text-brand-navy shadow-md" data-area="all">All Pune (<span id="count-all">7</span>)</button>
+        <button onclick="filterProperties('katraj')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="katraj">Katraj</button>
+        <button onclick="filterProperties('kondhwa')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="kondhwa">Kondhwa</button>
+        <button onclick="filterProperties('swargate')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="swargate">Swargate</button>
+        <button onclick="filterProperties('hadapsar')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="hadapsar">Hadapsar</button>
+        <button onclick="filterProperties('chinchwad')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="chinchwad">Chinchwad</button>
+        <button onclick="filterProperties('pimpri')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="pimpri">Pimpri</button>
+        <button onclick="filterProperties('bhosari')" class="locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white" data-area="bhosari">Bhosari</button>
+      </div>
+
+      <!-- Property Grid Display -->
+      <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <section id="gera-assurance" class="py-20 bg-gradient-to-b from-[#060a17] to-brand-navy border-t border-brand-borderGold/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Inspired by Pune's Industry Leaders</span>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">The 5-Year Comprehensive Warranty</h2>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            Following the prestigious benchmarks set by developments like Gera, Nishank Properties guarantees 5 full years of post-possession maintenance covering structural stability, plumbing, and finish integrity.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="bg-brand-cardBg/80 p-8 rounded-2xl border border-brand-borderGold/40 relative">
+            <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-2xl mb-5">
+              <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2">5-Year Structural Peace</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Dedicated rapid-response maintenance engineering team for structural inspection, crack prevention, and zero-leakage guarantees.</p>
+          </div>
+
+          <div class="bg-brand-cardBg/80 p-8 rounded-2xl border border-brand-borderGold/40 relative">
+            <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-2xl mb-5">
+              <i class="fa-solid fa-child-reaching"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2">Child-Centric Sanctuaries</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">In-house coaching academies for martial arts, swimming, music, and robotics within the secure gated boundary of our Katraj and Hadapsar projects.</p>
+          </div>
+
+          <div class="bg-brand-cardBg/80 p-8 rounded-2xl border border-brand-borderGold/40 relative">
+            <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center text-2xl mb-5">
+              <i class="fa-solid fa-handshake-simple"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2">Zero Brokerage &amp; Legal Audit</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">100% transparent RERA carpet area verification and milestone-linked payment protection without third-party commission surcharges.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="advisors" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-bold">Authorized Leadership Team</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Talk Directly with Nishank Advisors</h2>
+        <p class="text-slate-400 text-sm mt-2">Connect instantly via call or WhatsApp with our designated regional consultants.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Yashraj Gawade -->
+        <div class="bg-brand-cardBg border border-brand-borderGold/50 rounded-2xl p-6 relative hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full gold-gradient text-brand-navy flex items-center justify-center font-bold text-xl shadow-lg">
+                YG
+              </div>
+              <div>
+                <h3 class="font-heading text-lg font-bold text-white">Yashraj Gawade</h3>
+                <span class="text-xs text-brand-gold font-medium uppercase tracking-wider">South &amp; Central Pune Director</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6">
+              Specialist in luxury residential high-rises and commercial retail across Swargate, Katraj Lake, and Kondhwa hill enclaves.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-white/10">
+            <a href="tel:+919545548006" class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-brand-navyLight hover:bg-brand-gold hover:text-brand-navy transition text-sm font-semibold">
+              <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-xs text-brand-gold"></i> +91 95455 48006</span>
+              <span class="text-[11px] font-mono tracking-wider">CALL</span>
+            </a>
+            <a href="https://wa.me/919545548006?text=Hi%20Yashraj,%20I%20am%20interested%20in%20Nishank%20Properties%20in%20Pune." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white transition text-xs font-semibold">
+              <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Yashraj
+            </a>
+          </div>
+        </div>
+
+        <!-- Rahul Chavan -->
+        <div class="bg-brand-cardBg border border-brand-borderGold/50 rounded-2xl p-6 relative hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full gold-gradient text-brand-navy flex items-center justify-center font-bold text-xl shadow-lg">
+                RC
+              </div>
+              <div>
+                <h3 class="font-heading text-lg font-bold text-white">Rahul Chavan</h3>
+                <span class="text-xs text-brand-gold font-medium uppercase tracking-wider">Eastern IT Corridor Lead</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6">
+              Expert in Hadapsar, Magarpatta tech townships, township pre-launches, and high-yield residential leasing units.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-white/10">
+            <a href="tel:+919325954944" class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-brand-navyLight hover:bg-brand-gold hover:text-brand-navy transition text-sm font-semibold">
+              <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-xs text-brand-gold"></i> +91 93259 54944</span>
+              <span class="text-[11px] font-mono tracking-wider">CALL</span>
+            </a>
+            <a href="https://wa.me/919325954944?text=Hi%20Rahul,%20I%20am%20interested%20in%20Nishank%20Properties%20in%20Hadapsar/Pune." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white transition text-xs font-semibold">
+              <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Rahul
+            </a>
+          </div>
+        </div>
+
+        <!-- Aryan Bhosekar -->
+        <div class="bg-brand-cardBg border border-brand-borderGold/50 rounded-2xl p-6 relative hover:border-brand-gold transition duration-300 flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full gold-gradient text-brand-navy flex items-center justify-center font-bold text-xl shadow-lg">
+                AB
+              </div>
+              <div>
+                <h3 class="font-heading text-lg font-bold text-white">Aryan Bhosekar</h3>
+                <span class="text-xs text-brand-gold font-medium uppercase tracking-wider">PCMC Micro-Markets Lead</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6">
+              Heading projects across Chinchwad, Pimpri Metro Station, and Bhosari industrial-commercial corridors.
+            </p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-white/10">
+            <a href="tel:+919561382498" class="flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-brand-navyLight hover:bg-brand-gold hover:text-brand-navy transition text-sm font-semibold">
+              <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-xs text-brand-gold"></i> +91 95613 82498</span>
+              <span class="text-[11px] font-mono tracking-wider">CALL</span>
+            </a>
+            <a href="https://wa.me/919561382498?text=Hi%20Aryan,%20I%20am%20interested%20in%20Nishank%20Properties%20in%20PCMC." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white transition text-xs font-semibold">
+              <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Aryan
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="book-visit" class="py-20 bg-[#080e21] border-t border-brand-borderGold/40">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="bg-brand-cardBg/90 border border-brand-borderGold rounded-3xl p-8 sm:p-12 relative shadow-2xl">
+          
+          <div class="text-center max-w-xl mx-auto mb-8">
+            <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Personalized On-Site Inspection</span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Book a VIP Site Visit</h2>
+            <p class="text-slate-300 text-xs sm:text-sm mt-2">
+              Select your desired Pune locality and preferred advisor. Your request is registered directly into our CRM database.
+            </p>
+          </div>
+
+          <form id="public-booking-form" onsubmit="handlePublicBooking(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">Full Name *</label>
+                <input type="text" id="cust-name" required placeholder="e.g. Shashank Kulkarni" class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition">
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">WhatsApp / Phone Number *</label>
+                <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number" class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">Target Locality *</label>
+                <select id="cust-locality" required class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition">
+                  <option value="Katraj">Katraj (South Pune)</option>
+                  <option value="Kondhwa">Kondhwa (Wanowrie / NIBM)</option>
+                  <option value="Swargate">Swargate (Central Pune)</option>
+                  <option value="Hadapsar">Hadapsar (Magarpatta / IT)</option>
+                  <option value="Chinchwad">Chinchwad (PCMC)</option>
+                  <option value="Pimpri">Pimpri (Metro Zone)</option>
+                  <option value="Bhosari">Bhosari (MIDC Hub)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">Preferred Advisor</label>
+                <select id="cust-advisor" required class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition">
+                  <option value="Yashraj Gawade (9545548006)">Yashraj Gawade (9545548006) - South/Central</option>
+                  <option value="Rahul Chavan (9325954944)">Rahul Chavan (9325954944) - Hadapsar/East</option>
+                  <option value="Aryan Bhosekar (9561382498)">Aryan Bhosekar (9561382498) - PCMC</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">Visit Date *</label>
+                <input type="date" id="cust-date" required class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition">
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">Preferred Time Slot *</label>
+                <select id="cust-time" required class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition">
+                  <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
+                  <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
+                  <option value="Evening (5:00 PM - 7:30 PM)">Evening (5:00 PM - 7:30 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-300 mb-1">Typology / Specific Requirements</label>
+              <textarea id="cust-notes" rows="2" placeholder="e.g. Looking for a 3 BHK East-facing apartment with lake view, budget ₹95 Lakhs..." class="w-full bg-[#0b132b] border border-slate-700 focus:border-brand-gold rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl gold-gradient text-brand-navy font-extrabold text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Confirm Site Visit Request</span>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#040711] border-t border-brand-borderGold/40 py-12 text-slate-400 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <span class="font-heading text-xl font-bold text-white tracking-wider">NISHANK PROPERTIES</span>
+          <p class="mt-2 text-slate-400 leading-relaxed">
+            Leading residential and commercial real estate consultant offering 5-year structural quality assurance and transparent direct-to-builder pricing.
+          </p>
+          <div class="mt-4 text-brand-gold">MahaRERA: P52100098765</div>
+        </div>
+
+        <div>
+          <h5 class="text-white font-bold mb-3 uppercase tracking-wider">Pune Localities</h5>
+          <ul class="space-y-1.5">
+            <li><button onclick="filterProperties('katraj')" class="hover:text-brand-gold">Katraj Lake Residences</button></li>
+            <li><button onclick="filterProperties('kondhwa')" class="hover:text-brand-gold">Kondhwa / NIBM Hillside</button></li>
+            <li><button onclick="filterProperties('swargate')" class="hover:text-brand-gold">Swargate Central Hub</button></li>
+            <li><button onclick="filterProperties('hadapsar')" class="hover:text-brand-gold">Hadapsar Tech Park Corridors</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-bold mb-3 uppercase tracking-wider">PCMC Localities</h5>
+          <ul class="space-y-1.5">
+            <li><button onclick="filterProperties('chinchwad')" class="hover:text-brand-gold">Chinchwad Station Towers</button></li>
+            <li><button onclick="filterProperties('pimpri')" class="hover:text-brand-gold">Pimpri Metro Residences</button></li>
+            <li><button onclick="filterProperties('bhosari')" class="hover:text-brand-gold">Bhosari MIDC Showrooms</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-bold mb-3 uppercase tracking-wider">Advisory Hotlines</h5>
+          <ul class="space-y-2 font-mono text-slate-300">
+            <li>Yashraj Gawade: <a href="tel:+919545548006" class="hover:text-brand-gold">+91 95455 48006</a></li>
+            <li>Rahul Chavan: <a href="tel:+919325954944" class="hover:text-brand-gold">+91 93259 54944</a></li>
+            <li>Aryan Bhosekar: <a href="tel:+919561382498" class="hover:text-brand-gold">+91 95613 82498</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-900 text-center text-[11px] text-slate-600">
+        &copy; 2026 Nishank Properties. All Rights Reserved. Data stored securely with direct CRM synchronization.
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- ADMIN DASHBOARD SECTION CONTAINER                              -->
+  <!-- ============================================================== -->
+  <section id="admin-view" class="hidden min-h-screen bg-[#070c1e] text-slate-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-8">
+      
+      <!-- Admin Top Nav Bar -->
+      <div class="bg-brand-navy p-6 rounded-2xl border border-brand-borderGold flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-2xl">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl gold-gradient text-brand-navy flex items-center justify-center font-bold text-xl shadow-lg">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h2 class="font-heading text-2xl font-extrabold text-white flex items-center gap-2">
+              Nishank Admin CRM 
+              <span class="text-[11px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-mono uppercase">Live DB</span>
+            </h2>
+            <p class="text-xs text-slate-400">Manage, confirm, or reject client site visit appointments across Pune &amp; PCMC.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-2.5">
+          <button onclick="openManualBookingModal()" class="px-4 py-2 rounded-xl bg-brand-gold text-brand-navy text-xs font-bold uppercase tracking-wider hover:brightness-110 transition flex items-center gap-1.5 shadow-md">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Add Walk-In / Phone Lead</span>
+          </button>
+          
+          <button onclick="exportLeadsToCSV()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition flex items-center gap-1.5 border border-slate-700">
+            <i class="fa-solid fa-file-excel text-emerald-400"></i>
+            <span>Export CSV</span>
+          </button>
+
+          <button onclick="switchToClientView()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-brand-gold transition flex items-center gap-1.5 border border-slate-700">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Website</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        
+        <div class="bg-brand-cardBg p-5 rounded-2xl border border-slate-800">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Inquiries</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono mt-1" id="kpi-total">0</div>
+          <span class="text-[10px] text-slate-500 mt-1 block">All registered leads</span>
+        </div>
+
+        <div class="bg-brand-cardBg p-5 rounded-2xl border border-amber-500/30">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Pending Review</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-amber-300 font-mono mt-1" id="kpi-pending">0</div>
+          <span class="text-[10px] text-amber-400/80 mt-1 block">Action required</span>
+        </div>
+
+        <div class="bg-brand-cardBg p-5 rounded-2xl border border-emerald-500/30">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Confirmed Visits</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono mt-1" id="kpi-confirmed">0</div>
+          <span class="text-[10px] text-emerald-400/80 mt-1 block">Scheduled on calendar</span>
+        </div>
+
+        <div class="bg-brand-cardBg p-5 rounded-2xl border border-rose-500/30">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-rose-400">Rejected Leads</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-rose-400 font-mono mt-1" id="kpi-rejected">0</div>
+          <span class="text-[10px] text-rose-400/80 mt-1 block">Declined or duplicate</span>
+        </div>
+
+        <div class="bg-brand-cardBg p-5 rounded-2xl border border-brand-borderGold col-span-2 md:col-span-1">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-brand-gold">Assigned Advisors</span>
+          <div class="text-xs font-semibold text-slate-300 mt-2 space-y-1">
+            <div class="flex justify-between"><span>Yashraj:</span> <span id="kpi-adv-yashraj" class="font-mono text-brand-gold">0</span></div>
+            <div class="flex justify-between"><span>Rahul:</span> <span id="kpi-adv-rahul" class="font-mono text-brand-gold">0</span></div>
+            <div class="flex justify-between"><span>Aryan:</span> <span id="kpi-adv-aryan" class="font-mono text-brand-gold">0</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-brand-cardBg rounded-2xl border border-slate-800 shadow-xl overflow-hidden">
+        
+        <!-- Filter Controls -->
+        <div class="p-5 border-b border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 bg-[#091127]">
+          
+          <!-- Search Input -->
+          <div class="w-full md:w-72 relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+            <input type="text" id="admin-search-input" oninput="applyAdminFilters()" placeholder="Search name, phone, locality..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold">
+          </div>
+
+          <!-- Status & Locality Selectors -->
+          <div class="flex items-center flex-wrap gap-2 w-full md:w-auto">
+            <select id="admin-status-filter" onchange="applyAdminFilters()" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:border-brand-gold">
+              <option value="ALL">All Statuses</option>
+              <option value="Pending">Pending Only</option>
+              <option value="Confirmed">Confirmed Only</option>
+              <option value="Rejected">Rejected Only</option>
+            </select>
+
+            <select id="admin-locality-filter" onchange="applyAdminFilters()" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:border-brand-gold">
+              <option value="ALL">All Localities</option>
+              <option value="Katraj">Katraj</option>
+              <option value="Kondhwa">Kondhwa</option>
+              <option value="Swargate">Swargate</option>
+              <option value="Hadapsar">Hadapsar</option>
+              <option value="Chinchwad">Chinchwad</option>
+              <option value="Pimpri">Pimpri</option>
+              <option value="Bhosari">Bhosari</option>
+            </select>
+
+            <button onclick="resetAdminFilters()" class="px-3 py-2 text-xs text-slate-400 hover:text-white transition">
+              <i class="fa-solid fa-rotate-left mr-1"></i> Reset
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Responsive Leads Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-[#050a1b] text-slate-400 uppercase tracking-wider text-[10px] border-b border-slate-800">
+                <th class="p-4">Client Details</th>
+                <th class="p-4">Locality &amp; Schedule</th>
+                <th class="p-4">Assigned Advisor</th>
+                <th class="p-4">Notes</th>
+                <th class="p-4">Status</th>
+                <th class="p-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-leads-tbody" class="divide-y divide-slate-800/80">
+              <!-- Dynamically populated from localStorage -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty Results Message -->
+        <div id="admin-no-leads" class="hidden text-center py-12 text-slate-400 text-xs">
+          <i class="fa-solid fa-folder-open text-3xl mb-2 text-slate-600 block"></i>
+          No bookings match the selected filters.
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div id="galleryModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl bg-brand-cardBg rounded-2xl overflow-hidden border border-slate-700 shadow-2xl flex flex-col">
+      <div class="flex items-center justify-between p-4 border-b border-slate-800 bg-[#070d1e]">
+        <div>
+          <h4 id="galleryModalTitle" class="font-heading font-bold text-white text-base">Project Gallery</h4>
+          <span class="text-[11px] text-brand-gold">Nishank Architectural &amp; Interior Portfolio</span>
+        </div>
+        <button onclick="closeGalleryModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-lg">
+          &times;
+        </button>
+      </div>
+      <div class="p-4">
+        <div class="relative h-80 sm:h-96 rounded-xl overflow-hidden mb-4 bg-black flex items-center justify-center">
+          <img id="activeGalleryImage" src="" alt="Property Highlight" class="w-full h-full object-cover transition-all duration-300">
+        </div>
+        <div id="galleryThumbnails" class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+          <!-- Thumbnails rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl bg-brand-cardBg rounded-2xl overflow-hidden border border-brand-borderGold shadow-2xl">
+      <div class="flex items-center justify-between p-4 border-b border-slate-800 bg-[#070d1e]">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+          <h4 id="videoModalTitle" class="font-heading font-bold text-white text-sm">4K Virtual Walkthrough</h4>
+        </div>
+        <button onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-lg">
+          &times;
+        </button>
+      </div>
+      <div class="relative pt-[56.25%] bg-black">
+        <iframe id="videoIframe" class="absolute inset-0 w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminPinModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative w-full max-w-sm bg-brand-cardBg border border-brand-borderGold rounded-2xl p-6 shadow-2xl text-center">
+      <div class="w-12 h-12 rounded-full gold-gradient text-brand-navy flex items-center justify-center mx-auto mb-3 text-lg font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h3 class="font-heading text-lg font-bold text-white">Admin Authentication</h3>
+      <p class="text-xs text-slate-400 mt-1 mb-4">Enter management PIN to access lead dashboard.<br><span class="text-brand-gold">(Default PIN: 1234)</span></p>
+      
+      <form onsubmit="handleAdminPinSubmit(event)" class="space-y-4">
+        <input type="password" id="admin-pin-input" maxlength="8" placeholder="Enter PIN" class="w-full text-center tracking-widest text-lg bg-[#080e22] border border-slate-700 focus:border-brand-gold rounded-xl py-2.5 text-white focus:outline-none">
+        <div class="flex gap-2">
+          <button type="button" onclick="closeAdminPinModal()" class="flex-1 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700">Cancel</button>
+          <button type="submit" class="flex-1 py-2 rounded-xl gold-gradient text-brand-navy text-xs font-bold hover:brightness-110">Unlock</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="manualLeadModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="relative w-full max-w-md bg-brand-cardBg border border-brand-borderGold rounded-2xl p-6 shadow-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-heading font-bold text-white text-base">Add Manual / Call-in Lead</h3>
+        <button onclick="closeManualLeadModal()" class="text-slate-400 hover:text-white">&times;</button>
+      </div>
+
+      <form onsubmit="handleManualLeadSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">Customer Name *</label>
+          <input type="text" id="manual-name" required class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Phone Number (10 digits) *</label>
+          <input type="tel" id="manual-phone" required pattern="[0-9]{10}" class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 mb-1">Locality</label>
+            <select id="manual-locality" class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white">
+              <option value="Katraj">Katraj</option>
+              <option value="Kondhwa">Kondhwa</option>
+              <option value="Swargate">Swargate</option>
+              <option value="Hadapsar">Hadapsar</option>
+              <option value="Chinchwad">Chinchwad</option>
+              <option value="Pimpri">Pimpri</option>
+              <option value="Bhosari">Bhosari</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Assigned Advisor</label>
+            <select id="manual-advisor" class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white">
+              <option value="Yashraj Gawade (9545548006)">Yashraj Gawade</option>
+              <option value="Rahul Chavan (9325954944)">Rahul Chavan</option>
+              <option value="Aryan Bhosekar (9561382498)">Aryan Bhosekar</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-slate-400 mb-1">Date</label>
+            <input type="date" id="manual-date" required class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Time Slot</label>
+            <select id="manual-time" class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white">
+              <option value="Morning (10:00 AM - 1:00 PM)">Morning</option>
+              <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon</option>
+              <option value="Evening (5:00 PM - 7:30 PM)">Evening</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Requirement Notes</label>
+          <textarea id="manual-notes" rows="2" class="w-full bg-[#080e22] border border-slate-700 rounded-lg p-2.5 text-white" placeholder="Walk-in at sales pavilion..."></textarea>
+        </div>
+        <button type="submit" class="w-full py-2.5 rounded-lg gold-gradient text-brand-navy font-bold text-xs uppercase tracking-wider">
+          Save Lead in CRM
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Properties Dataset with Pune and PCMC areas
+    const propertiesData = [
+      {
+        id: 'katraj-1',
+        area: 'katraj',
+        name: 'Nishank Lakeview Grandeur',
+        location: 'Katraj-Kondhwa Link Road, Opposite Katraj Lake',
+        price: '₹ 84 Lac - ₹ 1.35 Cr',
+        bhk: '2 & 3 BHK Sky Apartments',
+        carpet: '780 - 1,210 sq.ft.',
+        status: 'Ready Possession',
+        tag: 'Lake Facing',
+        coverImg: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+        features: ['5-Year Warranty', 'Katraj Ghat Views', 'Clubhouse & Infinity Gym', 'MahaRERA Registered']
+      },
+      {
+        id: 'kondhwa-1',
+        area: 'kondhwa',
+        name: 'The Imperial Crest',
+        location: 'Near NIBM Post / Kondhwa South Hills, Pune',
+        price: '₹ 1.15 Cr - ₹ 2.40 Cr',
+        bhk: '3 & 4.5 BHK Luxury Estates',
+        carpet: '1,320 - 2,150 sq.ft.',
+        status: 'Under Construction (Dec 2026)',
+        tag: 'Gera Inspired Design',
+        coverImg: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1',
+        features: ['Child-Centric Campus', 'Private Sundecks', 'Temperature Pool', 'Zero Brokerage Direct']
+      },
+      {
+        id: 'swargate-1',
+        area: 'swargate',
+        name: 'Central Heritage Heights',
+        location: 'Swargate Junction & Metro Hub, Central Pune',
+        price: '₹ 1.45 Cr - ₹ 3.10 Cr',
+        bhk: '2, 3 & 4 BHK City Residences',
+        carpet: '920 - 1,840 sq.ft.',
+        status: 'Rapid Construction',
+        tag: 'Metro Connectivity',
+        coverImg: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+        features: ['2 Min to Metro Hub', 'Automated Tower Parking', 'Rooftop Lounge', 'High Rental Yield']
+      },
+      {
+        id: 'hadapsar-1',
+        area: 'hadapsar',
+        name: 'Nishank Boulevard Horizon',
+        location: 'Magarpatta Bypass, Hadapsar IT Corridor',
+        price: '₹ 92 Lac - ₹ 1.70 Cr',
+        bhk: '2 & 3 BHK Tech-Park Homes',
+        carpet: '810 - 1,380 sq.ft.',
+        status: 'Nearing Completion',
+        tag: 'IT Hub Proximity',
+        coverImg: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1',
+        features: ['Minutes to SP Infocity', 'Cricket & Football Turf', '50+ Amenities', '5-Year Structural Warranty']
+      },
+      {
+        id: 'chinchwad-1',
+        area: 'chinchwad',
+        name: 'Nishank Pratham Towers',
+        location: 'Elpro Mall Link Road, Chinchwad, PCMC',
+        price: '₹ 72 Lac - ₹ 1.25 Cr',
+        bhk: '2 & 3 BHK Modern Suites',
+        carpet: '760 - 1,180 sq.ft.',
+        status: 'Ready Possession',
+        tag: 'Prime PCMC',
+        coverImg: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+        features: ['Prime Chinchwad Center', 'Podium Landscaped Garden', 'EV Charging Bays', 'MahaRERA Cleared']
+      },
+      {
+        id: 'pimpri-1',
+        area: 'pimpri',
+        name: 'The Business & Sky Villas',
+        location: 'Old Mumbai-Pune Highway, Pimpri Metro Station',
+        price: '₹ 89 Lac - ₹ 1.65 Cr',
+        bhk: '2, 3 BHK & Commercial Retails',
+        carpet: '850 - 1,450 sq.ft.',
+        status: 'Under Construction',
+        tag: 'Highway Touch',
+        coverImg: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1',
+        features: ['Step out to Pimpri Metro', 'High Appreciation Index', 'Modular Italian Kitchens', 'Smart Home Access']
+      },
+      {
+        id: 'bhosari-1',
+        area: 'bhosari',
+        name: 'Nishank Industrial & Luxe Park',
+        location: 'MIDC Spine Road, Bhosari Industrial Zone',
+        price: '₹ 68 Lac - ₹ 1.40 Cr',
+        bhk: '1, 2, 3 BHK & Commercial Offices',
+        carpet: '680 - 1,290 sq.ft.',
+        status: 'Ready for Fit-outs',
+        tag: 'Commercial & Living',
+        coverImg: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80',
+        photos: [
+          'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80'
+        ],
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+        features: ['Direct Highway Frontage', 'Wide Trailer Access', '3-Tier Gate Security', 'Direct Builder Rate']
+      }
+    ];
+
+    // LocalStorage Key for CRM leads
+    const STORAGE_KEY = 'nishank_properties_leads_v1';
+    const ADMIN_PIN = '1234';
+    let isAdminLoggedIn = false;
+
+    // Seed Data if localStorage is empty
+    function seedInitialLeads() {
+      const existing = localStorage.getItem(STORAGE_KEY);
+      if (!existing) {
+        const demoLeads = [
+          {
+            id: 'lead-101',
+            name: 'Vikram Joshi',
+            phone: '9822012345',
+            locality: 'Katraj',
+            advisor: 'Yashraj Gawade (9545548006)',
+            date: '2026-10-02',
+            time: 'Morning (10:00 AM - 1:00 PM)',
+            notes: 'Looking for 3 BHK Lake facing with 2 car parks.',
+            status: 'Confirmed',
+            timestamp: new Date(Date.now() - 3600000 * 24).toLocaleString('en-IN')
+          },
+          {
+            id: 'lead-102',
+            name: 'Priya Deshpande',
+            phone: '9890123456',
+            locality: 'Hadapsar',
+            advisor: 'Rahul Chavan (9325954944)',
+            date: '2026-10-03',
+            time: 'Afternoon (2:00 PM - 5:00 PM)',
+            notes: 'Working at Magarpatta Cybercity, prefers immediate move-in.',
+            status: 'Pending',
+            timestamp: new Date(Date.now() - 3600000 * 12).toLocaleString('en-IN')
+          },
+          {
+            id: 'lead-103',
+            name: 'Sandeep Shinde',
+            phone: '9765432109',
+            locality: 'Chinchwad',
+            advisor: 'Aryan Bhosekar (9561382498)',
+            date: '2026-10-04',
+            time: 'Evening (5:00 PM - 7:30 PM)',
+            notes: 'Interested in PCMC 2 BHK budget under 80 Lakhs.',
+            status: 'Pending',
+            timestamp: new Date(Date.now() - 3600000 * 4).toLocaleString('en-IN')
+          },
+          {
+            id: 'lead-104',
+            name: 'Ketan Baldawa',
+            phone: '9422556677',
+            locality: 'Bhosari',
+            advisor: 'Aryan Bhosekar (9561382498)',
+            date: '2026-10-01',
+            time: 'Morning (10:00 AM - 1:00 PM)',
+            notes: 'Commercial showroom space requirement 1200 sqft.',
+            status: 'Rejected',
+            timestamp: new Date(Date.now() - 3600000 * 48).toLocaleString('en-IN')
+          }
+        ];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(demoLeads));
+      }
+    }
+
+    function getStoredLeads() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveStoredLeads(leads) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      renderAdminDashboard();
+    }
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      const bgColor = type === 'success' ? 'bg-emerald-900/90 border-emerald-500 text-emerald-200' :
+                      type === 'danger' ? 'bg-rose-900/90 border-rose-500 text-rose-200' :
+                      'bg-brand-navy border-brand-gold text-brand-goldLight';
+      
+      const icon = type === 'success' ? 'fa-circle-check text-emerald-400' :
+                   type === 'danger' ? 'fa-triangle-exclamation text-rose-400' :
+                   'fa-circle-info text-brand-gold';
+
+      toast.className = `flex items-center gap-3 p-4 rounded-xl border ${bgColor} text-xs font-medium shadow-2xl backdrop-blur-md animate-slide-up pointer-events-auto`;
+      toast.innerHTML = `
+        <i class="fa-solid ${icon} text-base"></i>
+        <span>${message}</span>
+      `;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function renderProperties(list) {
+      const grid = document.getElementById('propertyGrid');
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-16 bg-brand-cardBg/40 rounded-2xl border border-slate-800">
+            <i class="fa-solid fa-building-circle-exclamation text-4xl text-slate-500 mb-3"></i>
+            <p class="text-slate-300 font-semibold">No properties in this locality currently.</p>
+            <button onclick="filterProperties('all')" class="mt-4 px-4 py-2 bg-brand-gold text-brand-navy rounded-full text-xs font-bold uppercase">View All Pune Projects</button>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach(item => {
+        const card = document.createElement('div');
+        card.className = "bg-brand-cardBg rounded-2xl overflow-hidden border border-brand-borderGold/40 hover:border-brand-gold transition-all duration-300 shadow-2xl flex flex-col group";
+        
+        card.innerHTML = `
+          <div class="relative h-60 overflow-hidden">
+            <img src="${item.coverImg}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/0b132b/c59d5f?text=${encodeURIComponent(item.name)}'" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent"></div>
+            
+            <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
+              <span class="bg-[#0b132b]/90 text-brand-gold border border-brand-borderGold text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full badge-blur">
+                <i class="fa-solid fa-location-dot mr-1"></i> ${item.area.toUpperCase()}
+              </span>
+              <span class="bg-black/60 text-slate-200 text-[10px] px-2.5 py-1 rounded-full badge-blur">
+                ${item.tag}
+              </span>
+            </div>
+
+            <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+              <div>
+                <span class="text-[10px] text-slate-300 uppercase tracking-wider block">Starting At</span>
+                <span class="text-xl font-bold font-mono text-gold-gradient">${item.price}</span>
+              </div>
+              <span class="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded">
+                ${item.status}
+              </span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs text-brand-gold font-semibold mb-1">
+                <span>${item.bhk}</span>
+                <span class="text-slate-400 font-normal font-mono">${item.carpet}</span>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white group-hover:text-brand-gold transition-colors">${item.name}</h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-center">
+                <i class="fa-regular fa-compass mr-1.5 text-brand-gold"></i> ${item.location}
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                ${item.features.map(f => `<span class="text-[10px] bg-brand-navyLight text-slate-300 px-2 py-0.5 rounded border border-slate-700/60">${f}</span>`).join('')}
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+              <button onclick="openGalleryModal('${item.id}')" class="px-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1 transition">
+                <i class="fa-regular fa-images text-brand-gold"></i> Photos
+              </button>
+              <button onclick="openVideoModal('${item.name}', '${item.videoUrl}')" class="px-2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1 transition">
+                <i class="fa-solid fa-play text-red-400 text-[10px]"></i> 4K Tour
+              </button>
+              <button onclick="prefillBooking('${item.name}', '${item.area}')" class="px-2 py-2.5 rounded-xl gold-gradient text-brand-navy font-bold text-xs uppercase flex items-center justify-center hover:brightness-110 active:scale-95 transition">
+                Visit
+              </button>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function filterProperties(area) {
+      document.querySelectorAll('.locality-pill').forEach(btn => {
+        if(btn.dataset.area === area) {
+          btn.className = "locality-pill active-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-gold text-brand-navy shadow-md";
+        } else {
+          btn.className = "locality-pill px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-brand-navyLight text-slate-300 hover:text-white";
+        }
+      });
+
+      if (area === 'all') {
+        renderProperties(propertiesData);
+      } else {
+        const filtered = propertiesData.filter(p => p.area.toLowerCase() === area.toLowerCase());
+        renderProperties(filtered);
+      }
+    }
+
+    // Modal Control: Video
+    function openVideoModal(name, url) {
+      document.getElementById('videoModalTitle').innerText = name + ' - 4K Video Tour';
+      document.getElementById('videoIframe').src = url;
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.getElementById('videoIframe').src = '';
+    }
+
+    // Modal Control: Gallery
+    function openGalleryModal(propertyId) {
+      const prop = propertiesData.find(p => p.id === propertyId);
+      if(!prop) return;
+
+      document.getElementById('galleryModalTitle').innerText = prop.name + ' - Exclusive Photos';
+      const activeImg = document.getElementById('activeGalleryImage');
+      activeImg.src = prop.photos[0];
+
+      const thumbsContainer = document.getElementById('galleryThumbnails');
+      thumbsContainer.innerHTML = '';
+      prop.photos.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.className = `w-20 h-14 object-cover rounded-lg cursor-pointer border-2 ${idx === 0 ? 'border-brand-gold' : 'border-transparent opacity-70'} hover:opacity-100 transition`;
+        thumb.onclick = () => {
+          activeImg.src = src;
+          Array.from(thumbsContainer.children).forEach(c => c.className = 'w-20 h-14 object-cover rounded-lg cursor-pointer border-2 border-transparent opacity-70');
+          thumb.className = 'w-20 h-14 object-cover rounded-lg cursor-pointer border-2 border-brand-gold opacity-100';
+        };
+        thumbsContainer.appendChild(thumb);
+      });
+
+      const modal = document.getElementById('galleryModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeGalleryModal() {
+      const modal = document.getElementById('galleryModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handlePublicBooking(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const locality = document.getElementById('cust-locality').value;
+      const advisor = document.getElementById('cust-advisor').value;
+      const date = document.getElementById('cust-date').value;
+      const time = document.getElementById('cust-time').value;
+      const notes = document.getElementById('cust-notes').value.trim();
+
+      const newBooking = {
+        id: 'lead-' + Date.now(),
+        name,
+        phone,
+        locality,
+        advisor,
+        date,
+        time,
+        notes: notes || 'Online site visit booking',
+        status: 'Pending',
+        timestamp: new Date().toLocaleString('en-IN')
+      };
+
+      const leads = getStoredLeads();
+      leads.unshift(newBooking);
+      saveStoredLeads(leads);
+
+      // Reset form
+      document.getElementById('public-booking-form').reset();
+
+      showToast(`Thank you ${name}! Site visit request registered for ${locality}. Advisor assigned: ${advisor.split(' ')[0]}.`, 'success');
+
+      // Scroll to confirmation or advisors
+      setTimeout(() => {
+        const advisorElem = document.getElementById('advisors');
+        if (advisorElem) advisorElem.scrollIntoView({ behavior: 'smooth' });
+      }, 1000);
+    }
+
+    function prefillBooking(propName, locality) {
+      scrollToBooking();
+      const notesField = document.getElementById('cust-notes');
+      const localityField = document.getElementById('cust-locality');
+      if (notesField) notesField.value = `Interested in inspecting: ${propName}`;
+      
+      // Match locality in select dropdown
+      if (localityField) {
+        for (let i = 0; i < localityField.options.length; i++) {
+          if (localityField.options[i].value.toLowerCase() === locality.toLowerCase()) {
+            localityField.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    function scrollToBooking() {
+      switchToClientView();
+      const formSection = document.getElementById('book-visit');
+      if (formSection) formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function promptAdminAccess() {
+      if (isAdminLoggedIn) {
+        // Toggle view
+        const adminView = document.getElementById('admin-view');
+        if (adminView.classList.contains('hidden')) {
+          switchToAdminView();
+        } else {
+          switchToClientView();
+        }
+      } else {
+        // Open PIN modal
+        const pinModal = document.getElementById('adminPinModal');
+        pinModal.classList.remove('hidden');
+        pinModal.classList.add('flex');
+        document.getElementById('admin-pin-input').value = '';
+        document.getElementById('admin-pin-input').focus();
+      }
+    }
+
+    function closeAdminPinModal() {
+      const pinModal = document.getElementById('adminPinModal');
+      pinModal.classList.add('hidden');
+      pinModal.classList.remove('flex');
+    }
+
+    function handleAdminPinSubmit(e) {
+      e.preventDefault();
+      const entered = document.getElementById('admin-pin-input').value.trim();
+      if (entered === ADMIN_PIN) {
+        isAdminLoggedIn = true;
+        closeAdminPinModal();
+        showToast('Admin authentication verified! Welcome to Nishank CRM.', 'success');
+        switchToAdminView();
+      } else {
+        showToast('Invalid PIN entered! Please try again.', 'danger');
+        document.getElementById('admin-pin-input').value = '';
+      }
+    }
+
+    function switchToAdminView() {
+      document.getElementById('client-view').classList.add('hidden');
+      document.getElementById('admin-view').classList.remove('hidden');
+      document.getElementById('admin-btn-text').innerText = 'Exit Admin';
+      renderAdminDashboard();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchToClientView() {
+      document.getElementById('admin-view').classList.add('hidden');
+      document.getElementById('client-view').classList.remove('hidden');
+      document.getElementById('admin-btn-text').innerText = 'Admin CRM';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderAdminDashboard() {
+      const leads = getStoredLeads();
+      
+      // Update KPIs
+      const total = leads.length;
+      const pending = leads.filter(l => l.status === 'Pending').length;
+      const confirmed = leads.filter(l => l.status === 'Confirmed').length;
+      const rejected = leads.filter(l => l.status === 'Rejected').length;
+
+      document.getElementById('kpi-total').innerText = total;
+      document.getElementById('kpi-pending').innerText = pending;
+      document.getElementById('kpi-confirmed').innerText = confirmed;
+      document.getElementById('kpi-rejected').innerText = rejected;
+
+      // Count by advisors
+      const yashrajCount = leads.filter(l => l.advisor && l.advisor.includes('Yashraj')).length;
+      const rahulCount = leads.filter(l => l.advisor && l.advisor.includes('Rahul')).length;
+      const aryanCount = leads.filter(l => l.advisor && l.advisor.includes('Aryan')).length;
+
+      document.getElementById('kpi-adv-yashraj').innerText = yashrajCount;
+      document.getElementById('kpi-adv-rahul').innerText = rahulCount;
+      document.getElementById('kpi-adv-aryan').innerText = aryanCount;
+
+      applyAdminFilters();
+    }
+
+    function applyAdminFilters() {
+      const leads = getStoredLeads();
+      const search = (document.getElementById('admin-search-input').value || '').toLowerCase();
+      const statusFilter = document.getElementById('admin-status-filter').value;
+      const localityFilter = document.getElementById('admin-locality-filter').value;
+
+      const filtered = leads.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(search) || 
+                              item.phone.toLowerCase().includes(search) ||
+                              item.locality.toLowerCase().includes(search) ||
+                              (item.notes && item.notes.toLowerCase().includes(search));
+        
+        const matchesStatus = statusFilter === 'ALL' || item.status === statusFilter;
+        const matchesLocality = localityFilter === 'ALL' || item.locality.toLowerCase() === localityFilter.toLowerCase();
+
+        return matchesSearch && matchesStatus && matchesLocality;
+      });
+
+      const tbody = document.getElementById('admin-leads-tbody');
+      const noResults = document.getElementById('admin-no-leads');
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        noResults.classList.remove('hidden');
+        return;
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      filtered.forEach(lead => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-900/60 transition";
+
+        // Status Badge Style
+        let statusBadge = '';
+        if (lead.status === 'Confirmed') {
+          statusBadge = '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"><i class="fa-solid fa-check mr-1"></i> Confirmed</span>';
+        } else if (lead.status === 'Rejected') {
+          statusBadge = '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30"><i class="fa-solid fa-xmark mr-1"></i> Rejected</span>';
+        } else {
+          statusBadge = '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30"><i class="fa-solid fa-clock mr-1"></i> Pending</span>';
+        }
+
+        tr.innerHTML = `
+          <td class="p-4">
+            <div class="font-bold text-white text-sm">${lead.name}</div>
+            <div class="text-slate-400 font-mono text-[11px] flex items-center gap-1.5 mt-0.5">
+              <i class="fa-solid fa-phone text-slate-500 text-[10px]"></i> ${lead.phone}
+            </div>
+            <span class="text-[10px] text-slate-500">Rec: ${lead.timestamp || 'Recent'}</span>
+          </td>
+
+          <td class="p-4">
+            <span class="font-semibold text-brand-gold">${lead.locality}</span>
+            <div class="text-slate-300 mt-0.5 flex items-center gap-1 text-[11px]">
+              <i class="fa-regular fa-calendar text-[10px]"></i> ${lead.date || 'TBD'}
+            </div>
+            <span class="text-[10px] text-slate-400 block">${lead.time || 'General Slot'}</span>
+          </td>
+
+          <td class="p-4">
+            <span class="text-slate-200 font-medium">${lead.advisor.split('(')[0]}</span>
+            <span class="text-[10px] text-brand-gold font-mono block">${lead.advisor.split('(')[1] ? '(' + lead.advisor.split('(')[1] : ''}</span>
+          </td>
+
+          <td class="p-4 max-w-xs">
+            <p class="text-slate-400 text-[11px] truncate" title="${lead.notes || ''}">
+              ${lead.notes || 'No custom notes provided.'}
+            </p>
+          </td>
+
+          <td class="p-4">
+            ${statusBadge}
+          </td>
+
+          <td class="p-4 text-right">
+            <div class="flex items-center justify-end gap-1.5 flex-wrap">
+              ${lead.status !== 'Confirmed' ? `
+                <button onclick="updateLeadStatus('${lead.id}', 'Confirmed')" title="Confirm Visit" class="p-1.5 rounded-lg bg-emerald-600/30 text-emerald-400 hover:bg-emerald-600 hover:text-white transition">
+                  <i class="fa-solid fa-check"></i>
+                </button>
+              ` : ''}
+
+              ${lead.status !== 'Rejected' ? `
+                <button onclick="updateLeadStatus('${lead.id}', 'Rejected')" title="Reject Lead" class="p-1.5 rounded-lg bg-rose-600/30 text-rose-400 hover:bg-rose-600 hover:text-white transition">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              ` : ''}
+
+              <a href="https://wa.me/91${lead.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(lead.name)},%20this%20is%20Nishank%20Properties%20regarding%20your%20site%20visit%20in%20${encodeURIComponent(lead.locality)}." target="_blank" rel="noopener noreferrer" title="WhatsApp Customer" class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500 hover:text-white transition">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+
+              <a href="tel:+91${lead.phone.replace(/[^0-9]/g, '')}" title="Call Customer" class="p-1.5 rounded-lg bg-blue-500/20 text-blue-400 hover:bg-blue-500 hover:text-white transition">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+
+              <button onclick="deleteLead('${lead.id}')" title="Delete Lead" class="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-rose-400 transition">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function updateLeadStatus(id, newStatus) {
+      const leads = getStoredLeads();
+      const index = leads.findIndex(l => l.id === id);
+      if (index !== -1) {
+        leads[index].status = newStatus;
+        saveStoredLeads(leads);
+        showToast(`Lead marked as ${newStatus}!`, newStatus === 'Confirmed' ? 'success' : 'danger');
+      }
+    }
+
+    function deleteLead(id) {
+      const leads = getStoredLeads();
+      const updated = leads.filter(l => l.id !== id);
+      saveStoredLeads(updated);
+      showToast('Booking record removed from CRM.', 'info');
+    }
+
+    function resetAdminFilters() {
+      document.getElementById('admin-search-input').value = '';
+      document.getElementById('admin-status-filter').value = 'ALL';
+      document.getElementById('admin-locality-filter').value = 'ALL';
+      applyAdminFilters();
+    }
+
+    function openManualBookingModal() {
+      const modal = document.getElementById('manualLeadModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeManualLeadModal() {
+      const modal = document.getElementById('manualLeadModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleManualLeadSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('manual-name').value.trim();
+      const phone = document.getElementById('manual-phone').value.trim();
+      const locality = document.getElementById('manual-locality').value;
+      const advisor = document.getElementById('manual-advisor').value;
+      const date = document.getElementById('manual-date').value;
+      const time = document.getElementById('manual-time').value;
+      const notes = document.getElementById('manual-notes').value.trim();
+
+      const newBooking = {
+        id: 'lead-' + Date.now(),
+        name,
+        phone,
+        locality,
+        advisor,
+        date,
+        time,
+        notes: notes || 'Admin Walk-in Entry',
+        status: 'Confirmed',
+        timestamp: new Date().toLocaleString('en-IN')
+      };
+
+      const leads = getStoredLeads();
+      leads.unshift(newBooking);
+      saveStoredLeads(leads);
+
+      closeManualLeadModal();
+      document.getElementById('manual-name').value = '';
+      document.getElementById('manual-phone').value = '';
+      document.getElementById('manual-notes').value = '';
+
+      showToast(`Walk-in customer ${name} registered directly as Confirmed!`, 'success');
+    }
+
+    function exportLeadsToCSV() {
+      const leads = getStoredLeads();
+      if (leads.length === 0) {
+        showToast('No leads available to export.', 'info');
+        return;
+      }
+
+      let csv = 'ID,Name,Phone,Locality,Advisor,Visit Date,Time Slot,Status,Notes,Recorded At\r\n';
+      leads.forEach(l => {
+        const cleanNotes = (l.notes || '').replace(/"/g, '""');
+        csv += `"${l.id}","${l.name}","${l.phone}","${l.locality}","${l.advisor}","${l.date}","${l.time}","${l.status}","${cleanNotes}","${l.timestamp}"\r\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `Nishank_Properties_Leads_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      showToast('Leads exported successfully as CSV!', 'success');
+    }
+
+    // Keyboard accessibility for ESC keys
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+        closeGalleryModal();
+        closeAdminPinModal();
+        closeManualLeadModal();
+      }
+    });
+
+    // Page initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      seedInitialLeads();
+      renderProperties(propertiesData);
+      
+      // Set default date in booking to tomorrow
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dateStr = tomorrow.toISOString().split('T')[0];
+      const custDate = document.getElementById('cust-date');
+      const manualDate = document.getElementById('manual-date');
+      if (custDate) custDate.value = dateStr;
+      if (manualDate) manualDate.value = dateStr;
+    });
+  </script>
+</body>
+</html>
